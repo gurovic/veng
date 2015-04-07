@@ -1,0 +1,86 @@
+from tkinter import *
+import sys
+import time
+
+
+def move(x):
+    if x1 != 480:
+        x += 5
+    else:
+        pass
+    return x
+
+def loading():
+    global x1
+    x1 = move(x1)
+    can.create_rectangle(20, 70, 5 + x1, 80, fill = "green", width = 3)
+    root.after(50, loading)  
+
+def start():
+    root.destroy()
+
+def letter_game(event):
+    print("когда ты перепишешь скрипт?")
+
+def translate_words(event):
+    print("макруш начни работать")
+
+def translate_poems(event):
+    print("work makrush, work!")
+
+def exit(event):
+    sys.exit()
+
+
+root=Tk()
+
+x1 = 20
+    
+l, h = root.winfo_screenwidth() / 3.5, root.winfo_screenheight() / 3
+root.wm_geometry("+%d+%d" % (l, h))
+can = Canvas(root, width = 500 , height = 100)
+can.create_rectangle(0, 0, 10000, 10000, fill="white")
+can.create_rectangle(20, 70, 480, 80, fill="red", width = 3)
+
+hello = Label(root, text = '  Loading. Please, wait.', bg = 'white', fg='black', font = 'batang 20')
+hello.place(relx = 0.14, rely = 0.1, width = 350)
+
+can.pack()
+root.after(200, loading) 
+root.overrideredirect(1)
+root.after(6700,start)
+
+root.mainloop()
+
+
+
+root=Tk()   
+
+l, h = root.winfo_screenwidth() / 10, root.winfo_screenheight() / 17
+root.wm_geometry("+%d+%d" % (l, h))
+can = Canvas(root, width = 1000 , height = 600)
+can.create_rectangle(0, 0, 10000, 10000, fill="purple")
+
+
+
+hello = Label(root, text = '  добро пожаловать.\n  выберите задание.', bg = 'purple', fg='green', font = 'aharoni 25')
+but1 = Button(root, text = 'ПЕРЕСТАНОВКА БУКВ', bg = 'yellow', fg='blue', font = 'batang 24')
+but2 = Button(root, text = 'ПЕРЕВОД СЛОВ', bg = 'yellow', fg='blue', font = 'broadway 30')
+but3 = Button(root, text = 'ПЕРЕВОД СТИХОВ', bg = 'yellow', fg='blue', font = 'algerian 30')
+but4 = Button(root, text = 'EXIT', bg = 'yellow', fg='blue', font = 'jokerman 30')
+
+hello.place(relx = 0.33, rely = 0.1, width = 400)
+but1.place(relx = 0.35, rely = 0.25, width = 400)
+but2.place(relx = 0.35, rely = 0.36, width = 400)
+but3.place(relx = 0.35, rely = 0.51, width = 400)
+but4.place(relx = 0.35, rely = 0.66, width = 400)
+can.pack()
+
+but1.bind('<Button-1>', letter_game)
+but2.bind('<Button-1>', translate_words)
+but3.bind('<Button-1>', translate_poems)
+but4.bind('<Button-1>', exit)
+
+
+
+root.mainloop()
