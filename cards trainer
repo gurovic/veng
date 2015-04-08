@@ -8,12 +8,9 @@ def keysToValues(dic):
     while True:
         tmpkey = random.choice(keys)
         print("{0}: {1}".format(len(keys), tmpkey))
-        #print str(len(keys))+":", tmpkey
         value = dic[tmpkey]
-        #answ = input("Translation: ")
-        if input("Translation: ") in value.split(", "):
-            print("True. {0}\n".format(value)) #fjf
-            right += 1
+        if input("Sorting: ") in value.split(", "):
+            print("True. {0}\n".format(value))
             keys.remove(tmpkey)
         else:
             wrong += 1
@@ -21,20 +18,18 @@ def keysToValues(dic):
         if len(keys) < 1:
             input("\n\nNothing\nRight - {0}. Wrong - {1}".format(right, wrong))
             sys.exit()
- 
-def main():
-    try:
-        wordict = eval(open(sys.argv[1]).read())
-    except:
-        print("You have to enter all parameters.\nExample: python wordrepeater.py yourdictionary.json")
-        input("")
-    mode = input("Choose mode:\n\t1:Word To Translation;\n\t2:Translation To Word.\n>> ");
-    if mode == "2": wordict = {wordict[k]:k for k in wordict.keys()}
-    elif mode == "":
-        print("Exit")
-        sys.exit()
- 
-    keysToValues(wordict)
- 
-if __name__ == "__main__":
-    main()
+
+wordict = {'Сортировка выбором':'O(n ** 2)', 
+           'Сортировка пузырьком':'O(n ** 2)',
+           'Сортировка вставками':'O(n ** 2)',
+           'Сортировка слиянием':'O(n * log2(n))', 
+           'Сортировка подсчетом':'O(n + k)',
+           'Быстрая сортировка':'~O(n * log2(n))',
+           'Глупая сортировка':'O(n ** 3)'}
+mode = input("Choose mode:\n\t1:Time To Sorting;\n\t2:Sorting To Time.\n>> ")
+if mode == "2": wordict = {wordict[k]:k for k in wordict.keys()}
+elif mode == "":
+    print("Exit")
+    sys.exit()
+
+keysToValues(wordict)
