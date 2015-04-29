@@ -3,13 +3,13 @@ import random
  
 
 
-wordict = {'Сортировка выбором':'O(n ** 2)', 
-           'Сортировка пузырьком':'O(n ** 2)',
-           'Сортировка вставками':'O(n ** 2)',
-           'Сортировка слиянием':'O(n * log2(n))', 
-           'Сортировка подсчетом':'O(n + k)',
-           'Быстрая сортировка':'O(n * log2(n))',
-           'Глупая сортировка':'O(n ** 3)'}
+wordict = {'РЎРѕСЂС‚РёСЂРѕРІРєР° РІС‹Р±РѕСЂРѕРј':'O(n ** 2)', 
+           'РЎРѕСЂС‚РёСЂРѕРІРєР° РїСѓР·С‹СЂСЊРєРѕРј':'O(n ** 2)',
+           'РЎРѕСЂС‚РёСЂРѕРІРєР° РІСЃС‚Р°РІРєР°РјРё':'O(n ** 2)',
+           'РЎРѕСЂС‚РёСЂРѕРІРєР° СЃР»РёСЏРЅРёРµРј':'O(n * log2(n))', 
+           'РЎРѕСЂС‚РёСЂРѕРІРєР° РїРѕРґСЃС‡РµС‚РѕРј':'O(n + k)',
+           'Р‘С‹СЃС‚СЂР°СЏ СЃРѕСЂС‚РёСЂРѕРІРєР°':'O(n * log2(n))',
+           'Р“Р»СѓРїР°СЏ СЃРѕСЂС‚РёСЂРѕРІРєР°':'O(n ** 3)'}
 
 hdict = {'a':'O(n ** 2)', 'b':'O(n * log2(n))', 'c':'O(n + k)', 'd':'O(n ** 3)'}
 
@@ -18,7 +18,7 @@ right = 0
 keys = list(wordict.keys())
 while True:
     tmpkey = random.choice(keys)
-    print("{0}: {1}".format(len(keys), tmpkey))
+    print("{0}".format(tmpkey))
     value = wordict[tmpkey]
     ans = input('''Time: 
     a) O(n ** 2)
@@ -44,5 +44,5 @@ while True:
             print('Satisfactorily!:(')
         else:
             print('Bad!=(')
-        print("Right - {0}. Wrong - {1}".format(right, wrong))
+        print("Right - {0} Wrong - {1}".format(right, wrong))
         sys.exit()
